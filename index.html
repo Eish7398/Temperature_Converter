@@ -1,151 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<title>Celsius to Fahrenheit Conversion |  (°C to °F)</title>
-<meta name="description" content="Celsius to Fahrenheit (°C to °F) conversion calculator and how to convert.">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<style>
-   h1 { font-size:1.5rem; }
-   h2 { font-size:1.4rem; }
-   h4 { font-size:1.2rem; }
-   #calcform {
-      padding:15px;
-      background:#eee8d5;
-      border:1px solid #eee;
-      border-radius:7px;
-      max-width:470px;
-   }
-@media all and (max-width: 576px) {
-   #lb0,#lb1 { display:none; }
-}
-.ntable th { position:sticky; top:0; background:#f0f0f0; }
-.ntable td:nth-child(1), .ntable td:nth-child(2) { width:90px }
-
-#unitnav>div:nth-child(2)>div:nth-child(2) { width:33.333%; flex:0 0 auto; }
-#unitnav>div:nth-child(2)>div:nth-child(3) { width:8.333%; flex:0 0 auto; }
-#unitnav>div:nth-child(2)>div:nth-child(4) { width:33.333%; flex:0 0 auto; }
-@media all and (max-width: 576px) {
-   #unitnav>div:nth-child(2)>div:nth-child(2) { width:44.444%; flex:0 0 auto; }
-   #unitnav>div:nth-child(2)>div:nth-child(3) { width:11.111%; flex:0 0 auto; }
-   #unitnav>div:nth-child(2)>div:nth-child(4) { width:44.444%; flex:0 0 auto; }
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <h1 style = "font-weight: 200;">Temperature Conversion from Celsius to Fahrenheit & Fahrenheit to Celsius</h1>
+    <div id="P_div" style="background-color: antiquewhite; padding: 10px; border-radius: 30px 30px 10px 10px;"> 
+        <h2 >Temperature Converter</h2>
+        <div id="container">
+            <div class="input_div">
+                <label for="celsius">Celsius:</label><br>
+                <input type="number" value="0" id="cel" class="inp">
 
-<h1>Celsius to Fahrenheit Conversion</h1>
-<form id="calcform" name="calcform" autocomplete="off">
-<div id="unitnav">
-<div class="mb-3 row">
-<label id="lb0" class="col-sm-3 col-form-label">&nbsp;</label>
-<div class="col-sm-9">
-<select id="unit" class="col-sm-9 form-control">
-<option value="color">Color</option>
-<option value="energy">Energy</option>
-<option value="frequecy">Frequecy</option>
-<option value="image">Image</option>
-<option value="length">Length</option>
-<option value="weight">Mass (weight)</option>
-<option value="number">Number</option>
-<option value="power">Power</option>
-<option value="temperature" selected>Temperature</option>
-</select>
-</div>
-</div>
-<div class="row">
-<label id="lb1" class="col-sm-3 col-form-label">&nbsp;</label>
-<div class="mb-3">
-
-<select id="unit1" class="form-control">
-<option value="celsius" selected>Celsius (&deg;C)</option>
-<option value="fahrenheit">Fahrenheit (&deg;F)</option>
-<option value="kelvin">Kelvin (K)</option>
-<option value="rankine">Rankine (&deg;R)</option>
-</select>
-</div>
-<div id="to" class="mb-3 col-form-label">to</div>
-<div class="mb-3">
-
-<select id="unit2" class="form-control">
-<option value="celsius">Celsius (&deg;C)</option>
-<option value="fahrenheit" selected>Fahrenheit (&deg;F)</option>
-<option value="kelvin">Kelvin (K)</option>
-<option value="rankine">Rankine (&deg;R)</option>
-</select>
-</div>
-</div>
-</div>
-<div class="mb-3 row">
-<label for="x" class="col-sm-3 col-form-label">Celsius</label>
-<div class="col-sm-9">
-<div class="input-group">
-<input type="number" min="0" step="any" value="0" id="x" name="x" class="form-control form-control-lg" required autofocus>
-<span class="input-group-text">&deg;C</span>
-</div>
-</div>
-</div>
-<div class="mb-3 row">
-<label id="lb1" class="col-sm-3 col-form-label">&nbsp;</label>
-<div class="col-sm-9">
-<button type="submit" title="Convert" class="btn btn-success"><span>=</span> Convert</button>
-<button type="reset" title="Reset" class="btn btn-secondary"><span>&times;</span> Reset</button>
-<button type="button" title="Swap conversion" class="btn btn-secondary" onclick="location.href='fahrenheit-to-celsius.html';"><span>&#8645;</span> Swap</button>
-</div>
-</div>
-<div class="mb-3 row">
-<label for="y" class="col-sm-3 col-form-label">Fahrenheit</label>
-<div class="col-sm-9">
-<div class="input-group">
-<textarea id="y" rows="1" class="form-control form-control-lg" readonly></textarea>
-<span class="input-group-text">&deg;F</span>
-</div>
-</div>
-</div>
-<div id="pf1" class="row">
-<label for="txt" class="col-sm-3 col-form-label">Calculation</label>
-<div class="col-sm-9">
-<textarea id="txt" rows="3" class="form-control" readonly></textarea>
-</div>
-</div>
-</form>
-<p><a href="fahrenheit-to-celsius.html">Fahrenheit to Celsius &#9658;</a></p>
+            </div>
+            <div class="input_div">
+                <label for="fahrenhiet">Fahrenheit:</label><br>
+                <input type="number" value="32" id="fah" class="inp">
+            </div>
+        </div>
 
 
-
-<h2 id="how">How to convert Celsius to Fahrenheit</h2>
-<p>0 degrees Celsius is equal to 32 degrees Fahrenheit:</p>
-<p class="math">0 &deg;C = 32 &deg;F</p>
-<p>The temperature <i>T</i> in degrees Fahrenheit (&deg;F) is equal to the temperature <i>T</i> in degrees Celsius (&deg;C) times 9/5 plus 32:</p>
-<p class="math"><i>T</i><sub>(&deg;F)</sub> = <i>T</i><sub>(&deg;C)</sub> &times; 9/5 + 32 </p>
-<p>or</p>
-<p class="math"><i>T</i><sub>(&deg;F)</sub> = <i>T</i><sub>(&deg;C)</sub> &times; 1.8 + 32 </p>
-<h4>Example</h4>
-<p>Convert 20 degrees Celsius to degrees Fahrenheit:</p>
-<p class="math"><i>T</i><sub>(&deg;F)</sub> = 20&deg;C &times; 9/5 + 32 = 68 &deg;F</p>
-
-
-
+        <div id="container2"> 
+            <h3 id="how">How to convert Celsius to Fahrenheit:</h3>
+            <p>0 degrees Celsius is equal to 32 degrees Fahrenheit:</p>
+            <p class="math">0 &deg;C = 32 &deg;F</p>
+            <p>The temperature <i>T</i> in degrees Fahrenheit (&deg;F) is equal to the temperature <i>T</i> in degrees Celsius (&deg;C) times 9/5 plus 32:</p>
+            <p class="math"><i>T</i><sub>(&deg;F)</sub> = <i>T</i><sub>(&deg;C)</sub> &times; 9/5 + 32 </p>
+            <p>or</p>
+            <p class="math"><i>T</i><sub>(&deg;F)</sub> = <i>T</i><sub>(&deg;C)</sub> &times; 1.8 + 32 </p>
+            <h4>Example</h4>
+            <p>Convert 20 degrees Celsius to degrees Fahrenheit:</p>
+            <p class="math"><i>T</i><sub>(&deg;F)</sub> = 20&deg;C &times; 9/5 + 32 = 68 &deg;F</p>
+        </div>   
 
 
+    </div>
+    
 
+<script src="logic.js"></script>
 
-
-
-<script src="/convert/convert.js"></script>
-<script async src="/lib/unitnav2.js"></script>
-
-<script>
-var xelem=document.getElementById("x");function GetURLParams(){for(var e,t=window.location.href,n=/[?&]([^=#]+)=([^&#]*)/g,l={};e=n.exec(t);)l[e[1]]=e[2];return l}function OnCalc(){for(var e,t="",n=str2num3(xelem.value),l=0;l<n.length;l++)e=9*n[l]/5+32,l>0&&(t+=" "),t+=num2str(roundresult(e));if(document.getElementById("y").value=t,1==n.length){var a=num2str(n[0])+"\xb0C\xd79/5+32\n";a+="= "+t+"\xb0F",document.getElementById("txt").value=a,document.getElementById("pf1").style.display="flex"}else document.getElementById("pf1").style.display="none"}window.addEventListener("DOMContentLoaded",function(){var e=GetURLParams();if(void 0!==e.x){var t=decodeURIComponent2(e.x);-1==t.indexOf(" ")&&(document.querySelector("#doc>h1").innerHTML=t+" degrees Celsius to Fahrenheit",document.title=t+" degrees Celsius to Fahrenheit"),xelem.value=t}OnCalc()});
-</script>
-
-
+   
 </body>
-
 </html>
